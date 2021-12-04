@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import { Drawer, LinearProgress, Grid, Badge} from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import Item from './Item/Item'
+import Cart from './Cart/Cart';
 // Styles
 import {Wrapper, StyledButton } from './App.styles'
 // Types 
@@ -49,7 +50,7 @@ if(error) return <div>Error, something went wrong...</div>
   return (
     <Wrapper>
       <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
-       Cart Goes here
+       <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}/>
       </Drawer>
 
       <StyledButton onClick={() => setCartOpen(true)}>
