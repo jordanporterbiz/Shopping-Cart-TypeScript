@@ -5,9 +5,8 @@ import { useQuery } from 'react-query';
 import { Drawer, LinearProgress, Grid, Badge} from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import Item from './Item/Item'
-import { StyledButton, Wrapper } from './App.styles';
 // Styles
-//import {Wrapper, StyledButton } from './App.styles'
+import {Wrapper, StyledButton } from './App.styles'
 // Types 
 export type CartItemType = {
   id: number; 
@@ -36,7 +35,8 @@ const App = () => {
   const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts)
   console.log(data)
 
-  const getTotalItems = (items: CartItemType[]) => null
+  const getTotalItems = (items: CartItemType[]) => 
+  items.reduce((acc: number, items) => acc + items.amount, 0)
 
   const handleAddToCart = (clickedItem: CartItemType) => null
 
