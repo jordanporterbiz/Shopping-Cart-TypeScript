@@ -1,12 +1,10 @@
 import React from 'react';
 import { useState } from 'react'
 import { useQuery } from 'react-query';
-// Components
 import { Drawer, LinearProgress, Grid, Badge} from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import Item from './Item/Item'
 import Cart from './Cart/Cart';
-// Styles
 import {Wrapper, StyledButton } from './App.styles'
 // Types 
 export type CartItemType = {
